@@ -1,5 +1,7 @@
 const solveFor = document.querySelector(".solveFor");
 const boxes = document.querySelectorAll(".gridbox");
+const boxesAll = document.querySelector(".gridbox");
+const playarea = document.querySelector(".playarea");
 const shuffle = document.querySelector(".shuffle");
 const multiply = document.querySelector(".multiply");
 const add = document.querySelector(".add");
@@ -42,6 +44,7 @@ function resetAll() {
   numbers = [];
   multipliedNumbers = [];
   multiBoxNumbers = [];
+
   multiBoxes.forEach((multiBox) => {
     multiBox.textContent = "";
   });
@@ -51,6 +54,7 @@ function resetAll() {
   boxes.forEach((box) => {
     box.classList.remove("selected", "saved");
     box.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    console.log(box);
   });
 
   document.body.style.backgroundImage = "linear-gradient(45deg, blue, purple)";
@@ -133,7 +137,7 @@ boxes.forEach((box) => {
   // let boxClicked = false;
   box.addEventListener("click", (e) => {
     box.classList.toggle("selected");
-
+    console.log(box);
     if (box.classList.contains("selected") && box.classList.contains("saved")) {
     } else if (box.classList.contains("selected")) {
       const number = e.target.innerText;
